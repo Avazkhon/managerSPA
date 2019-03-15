@@ -1,11 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-let text = "Hello, i am Manager!"
+class App extends React.Component{
+  constructor(props) {
+    super(props)
+    this.state = {text: "Hello, A am Manager!"}
+  }
+  render(){
+    return (
+      <h1>{this.state.text}</h1>
+    )
+  }
+}
 
 ReactDOM.render(
-  text, 
+  <App />,
   document.getElementById('root')
-)
+);
 
 module.hot.accept();
