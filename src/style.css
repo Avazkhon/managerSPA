@@ -1,0 +1,7 @@
+#navbarSupportedContent ul li{
+	border-left: 1px solid #DCDCDC;
+}
+
+#navbarSupportedContent ul li :hover{
+	background-color: #f3f3f3;
+}
