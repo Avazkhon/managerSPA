@@ -7,7 +7,14 @@ module.exports = {
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        use: ['babel-loader']
+        use: [
+         {loader: 'babel-loader'},
+         query: {presets: ["react"]}
+       ]
+      },
+      {
+        test: /\.css$/,
+        use:['style-loader', "css-loader"]
       }
     ]
   },
@@ -24,6 +31,7 @@ module.exports = {
   ],
   devServer: {
     contentBase: './dist',
-    hot: true
+    hot: true,
+    port: 2222
   }
 };
