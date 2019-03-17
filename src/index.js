@@ -1,32 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import "./style.css";
-import 'bootstrap/dist/css/bootstrap.min.css';
 
-import Nav from "./nav";
+import App from './app';
 
 
-class App extends React.Component{
-  constructor(props) {
-    super(props)
-    this.state = {text: "Hello, A am Manager!"}
-  }
+
+class Index extends React.Component{
   render(){
     return (
-      <div className="app">
-        <header>
-          <Nav />
-        </header>
-        <content></content>
-        <footer></footer>
-      </div>
+      <App />
     )
   }
 }
 
 ReactDOM.render(
-  <App />,
+  <Index />,
   document.getElementById('root')
 );
 
 module.hot.accept();
+
