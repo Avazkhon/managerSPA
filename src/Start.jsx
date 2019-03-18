@@ -1,9 +1,14 @@
 import React from 'react';
+import Nav from './Nav';
 
 class Start extends React.Component {
   
   render() {
   	return (
+      <div className='start'>
+       <header>
+        <Nav />
+      </header>
   	  <form className="newUser">
   	  <div className="form-group row">
 	    <label htmlFor="inputFirstNamel3" className="col-sm-2 col-form-label">Имя</label>
@@ -47,6 +52,7 @@ class Start extends React.Component {
 	    </div>
 	  </div>
 	</form>
+	</div>
   	)
   }
 }

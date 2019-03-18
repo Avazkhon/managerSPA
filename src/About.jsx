@@ -1,9 +1,14 @@
 import React from 'react';
 
+import Nav from './Nav';
+
 class About extends React.Component{
   render(){
     return (
       <div className='main'>
+      <header>
+        <Nav />
+      </header>
         <content>
           <div className="text-center" >
             <h1>Какие мы </h1>

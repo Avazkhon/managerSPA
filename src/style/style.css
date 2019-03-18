@@ -7,7 +7,13 @@
 }
 
 .newUser {
-	width: 60%;
-	height: 60%;
-	margin: 100px auto;
-  }
+  width: 60%;
+  height: 60%;
+  margin: 100px auto;
+}
+
+.notFound {
+  width: 50%;
+  height: 50%;
+  margin: 100px auto;
+}
