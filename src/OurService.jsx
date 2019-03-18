@@ -1,15 +1,11 @@
 import React from 'react';
 
-import Nav from "./nav";
 import HeadBlock from './headBlock';
 
 class OurService extends React.Component{
   render(){
     return (
       <div className='OurService'>
-        <header>
-          <Nav />
-        </header>
         <content>
           <div className="text-center" >
             <h1>Наше приимущество</h1>

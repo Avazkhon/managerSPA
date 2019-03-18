@@ -21,14 +21,16 @@ class Nav extends React.Component{
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav mr-auto">
             <Button link="/" name="Главное" />
-            <Button link="/OurService" name="Наш сервис" />
+            <Button link="/ourService" name="Наш сервис" />
             <Button link="/instructions" name="Инструкции" />
-            <Button link="/About" name="О нас" />
+            <Button link="/about" name="О нас" />
+            <Button link="/start" name="Начать" />
           </ul>
         </div>
       </nav>
     )
   }
 }
+// link="/start" module start
 
 export default Nav

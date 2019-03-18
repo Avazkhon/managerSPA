@@ -1,0 +1,13 @@
+#navbarSupportedContent ul li{
+  border-left: 1px solid #DCDCDC;
+}
+
+#navbarSupportedContent ul li :hover{
+  background-color: #f3f3f3;
+}
+
+.newUser {
+	width: 60%;
+	height: 60%;
+	margin: 100px auto;
+  }
