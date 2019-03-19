@@ -10,6 +10,7 @@ function Button (props) {
 }
 
 class Nav extends React.Component{
+
   render() {
     return (
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
