@@ -5,32 +5,41 @@ class Start extends React.Component {
 
   constructor(props) {
   	super(props);
+  	this.state = {
+      	firstName: "",
+      	lastName: "",
+      	email: "",
+      	phone: "",
+      	nickName: "",
+      	password: ""
+  	}
 
     this.handleSendingUser = this.handleSendingUser.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
-  handleSendingUser(e) {
-  	e.preventDefault();
+  handleSendingUser() {
     let xhr = new XMLHttpRequest;
     let url = `http://localhost:2020/userNew`;
     let newUser = {
-      name: {
-      	firstName: this.refs.firstName.value,
-      	lastName: this.refs.lastName.value
+  	  name: {
+      	firstName: this.state.firstName,
+      	lastName: this.state.lastName
       },
       contact: {
-      	email: this.refs.email.value,
-      	phone: Number(this.refs.phone.value)
+      	email: this.state.email,
+      	phone: this.state.phone
       },
       security: {
-      	nickName: this.refs.nickName.value,
-      	password: this.refs.password.value
+      	nickName: this.state.nickName,
+      	password: this.state.password
       }
-    };
+  	};
 
-      xhr.open("POST", url, )
-      xhr.setRequestHeader('Content-type', 'application/json; charset=utf-8');
-      xhr.onreadystatechange = ()=>{
+    xhr.open("POST", url, )
+    xhr.setRequestHeader('Content-type', 'application/json; charset=utf-8');
+
+    xhr.onreadystatechange = ()=>{
       if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 201){
           console.log(xhr.response)
         }
@@ -39,52 +48,57 @@ class Start extends React.Component {
     xhr.send( JSON.stringify(newUser) )
   }
 
+  handleChange(event) {
+  	let value = event.target.value;
+  	this.setState({[event.target.name]: event.target.value})
+  }
+
   render() {
   	return (
       <div className='start'>
        <header>
         <Nav />
       </header>
-  	  <form className="newUser" onSubmit={this.handleSendingUser} >
+  	  <form className="newUser">
   	  <div className="form-group row">
 	    <label htmlFor="inputFirstNamel3" className="col-sm-2 col-form-label">Имя</label>
 	    <div className="col-sm-10">
-	      <input ref="firstName" className="form-control" id="inputFirstNamel3" placeholder="Ввидите имя" />
+	      <input name="firstName" className="form-control" id="inputFirstNamel3" placeholder="Ввидите имя" onChange={this.handleChange}  />
 	    </div>
 	  </div>
 	  <div className="form-group row">
 	    <label htmlFor="inputLastNamel3" className="col-sm-2 col-form-label">Фамилия</label>
 	    <div className="col-sm-10">
-	      <input ref="lastName" className="form-control" id="inputLastNamel3" placeholder="Ввидите фамилию" />
+	      <input name="lastName" className="form-control" id="inputLastNamel3" placeholder="Ввидите фамилию" onChange={this.handleChange} />
 	    </div>
 	  </div>
 	  <div className="form-group row">
 	    <label htmlFor="inputEmail3" className="col-sm-2 col-form-label">Email</label>
 	    <div className="col-sm-10">
-	      <input ref="email" className="form-control" id="inputEmail3" placeholder="Ввидите email" />
+	      <input name="email" className="form-control" id="inputEmail3" placeholder="Ввидите email" onChange={this.handleChange} />
 	    </div>
 	  </div>
 	  <div className="form-group row">
 	    <label htmlFor="inputastNickNamel3" className="col-sm-2 col-form-label">Ник</label>
 	    <div className="col-sm-10">
-	      <input ref="nickName" className="form-control" id="inputastNickNamel3" placeholder="Ввидите ник" />
+	      <input name="nickName" className="form-control" id="inputastNickNamel3" placeholder="Ввидите ник" onChange={this.handleChange} />
 	    </div>
 	  </div>
 	  <div className="form-group row">
 	    <label htmlFor="inputPhone3" className="col-sm-2 col-form-label">Телефон</label>
 	    <div className="col-sm-10">
-	      <input ref="phone" className="form-control" id="inputPhone3" placeholder="Ввидите телефон" />
+	      <input name="phone" className="form-control" id="inputPhone3" placeholder="Ввидите телефон" onChange={this.handleChange} />
 	    </div>
 	  </div>
 	  <div className="form-group row">
 	    <label htmlFor="inputPassword3" className="col-sm-2 col-form-label">Password</label>
 	    <div className="col-sm-10">
-	      <input ref="password" type="password" className="form-control" id="inputPassword3" placeholder="Password" />
+	      <input name="password" type="password" className="form-control" id="inputPassword3" placeholder="Password" onChange={this.handleChange} />
 	    </div>
 	  </div>
 	  <div className="form-group row">
 	    <div className="col-sm-10">
-	      <button ref="submit" className="btn btn-primary">зарегистрироваться</button>
+	      <input  type='button' className="btn btn-primary" value="зарегистрироваться" onClick={this.handleSendingUser} / >
 	    </div>
 	  </div>
 	</form>
