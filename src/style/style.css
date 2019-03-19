@@ -4,6 +4,7 @@
 
 #navbarSupportedContent ul li :hover{
   background-color: #f3f3f3;
+  text-decoration-line: none;
 }
 
 .newUser {

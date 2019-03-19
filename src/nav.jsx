@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 function Button (props) {
   return (
     <li className="nav-item active">
-      <Link to={props.link} ><div className="nav-link" href="#">{props.name} </div></Link>
+      <Link to={props.link} ><div className="nav-link">{props.name} </div></Link>
     </li>
   )
 }

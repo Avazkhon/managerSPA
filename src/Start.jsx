@@ -25,7 +25,7 @@ class Start extends React.Component {
 	  <div className="form-group row">
 	    <label htmlFor="inputEmail3" className="col-sm-2 col-form-label">Email</label>
 	    <div className="col-sm-10">
-	      <input type="email" className="form-control" id="inputEmail3" placeholder="Email" />
+	      <input type="email" className="form-control" id="inputEmail3" placeholder="Ввидите email" />
 	    </div>
 	  </div>
 	  <div className="form-group row">
