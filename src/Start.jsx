@@ -2,7 +2,8 @@ import React from 'react';
 
 //this state
 import Nav from './Nav';
-import FormUser from './componentStart/formUser'
+import FormUser from './componentStart/formUser';
+import ReqComponent from './componentRequest/ReqComponent'
 
 class Start extends React.Component {
 
@@ -22,33 +23,10 @@ class Start extends React.Component {
   }
 
   handleSendingUser() {
-    let xhr = new XMLHttpRequest;
-    let url = `http://localhost:2020/userNew`;
-    let newUser = {
-  	  name: {
-      	firstName: this.state.firstName,
-      	lastName: this.state.lastName
-      },
-      contact: {
-      	email: this.state.email,
-      	phone: this.state.phone
-      },
-      security: {
-      	nickName: this.state.nickName,
-      	password: this.state.password
-      }
-  	};
-
-    xhr.open("POST", url, )
-    xhr.setRequestHeader('Content-type', 'application/json; charset=utf-8');
-
-    xhr.onreadystatechange = ()=>{
-      if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 201){
-          console.log(xhr.response)
-        }
-       console.log(xhr.response)
-      }
-    xhr.send( JSON.stringify(newUser) )
+  	let date = this.state;
+  	let url = `http://localhost:2020/userNew`;
+  	let reqComponentnew = new ReqComponent(url, date)
+  	reqComponentnew.handleSendingUser()
   }
 
   handleChange(event) {
