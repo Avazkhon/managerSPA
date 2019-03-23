@@ -9,7 +9,7 @@ function Button (props) {
   )
 }
 
-class Nav extends React.Component{
+class UserNavBar extends React.Component{
 
   render() {
     return (
@@ -21,17 +21,16 @@ class Nav extends React.Component{
 
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav mr-auto">
-            <Button link="/" name="Главное" />
-            <Button link="/ourService" name="Наш сервис" />
-            <Button link="/instructions" name="Инструкции" />
-            <Button link="/about" name="О нас" />
-            <Button link="/start" name="Начать" />
+            <Button link="/" name="Компания" />
+            <Button link="/ourService" name="Сотрудники" />
+            <Button link="/instructions" name="Отчеты" />
+            <Button link="/about" name="Статьи" />
+            <Button link="/start" name="Настройки" />
           </ul>
         </div>
       </nav>
     )
   }
 }
-// link="/start" module start
 
-export default Nav
+export default UserNavBar

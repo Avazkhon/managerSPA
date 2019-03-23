@@ -1,7 +1,7 @@
 import React from 'react';
 
 import HeadBlock from './headBlock';
-import Nav from './Nav';
+import Nav from './navBar/Nav';
 
 class Home extends React.Component{
   render(){

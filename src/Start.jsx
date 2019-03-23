@@ -1,7 +1,7 @@
 import React from 'react';
 
 //this state
-import Nav from './Nav';
+import Nav from './navBar/Nav';
 import FormUser from './componentStart/formUser';
 import ReqComponent from './componentRequest/ReqComponent'
 

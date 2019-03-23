@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Nav from './Nav';
+import Nav from './navBar/Nav';
 
 class About extends React.Component{
   render(){
