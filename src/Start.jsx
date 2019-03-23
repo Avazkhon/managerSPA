@@ -14,7 +14,6 @@ class Start extends React.Component {
       	lastName: "",
       	email: "",
       	phone: "",
-      	nickName: "",
       	password: ""
   	}
 

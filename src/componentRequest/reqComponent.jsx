@@ -20,7 +20,6 @@ class ReqComponent{
       	phone: this.date.phone
       },
       security: {
-      	nickName: this.date.nickName,
       	password: this.date.password
       }
   	};
