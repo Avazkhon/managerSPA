@@ -24,12 +24,6 @@ class FormUser extends React.Component {
     </div>
   </div>
   <div className="form-group row">
-    <label htmlFor="inputastNickNamel3" className="col-sm-2 col-form-label">Ник</label>
-    <div className="col-sm-10">
-      <input name="nickName" className="form-control" id="inputastNickNamel3" placeholder="Ввидите ник" onChange={this.props.handleChange} />
-    </div>
-  </div>
-  <div className="form-group row">
     <label htmlFor="inputPhone3" className="col-sm-2 col-form-label">Телефон</label>
     <div className="col-sm-10">
       <input name="phone" className="form-control" id="inputPhone3" placeholder="Ввидите телефон" onChange={this.props.handleChange} />
@@ -38,7 +32,7 @@ class FormUser extends React.Component {
   <div className="form-group row">
     <label htmlFor="inputPassword3" className="col-sm-2 col-form-label">Password</label>
     <div className="col-sm-10">
-      <input name="password" type="password" className="form-control" id="inputPassword3" placeholder="Password" onChange={this.props.handleChange} />
+      <input name="password" type="password" autoComplete="off" className="form-control" id="inputPassword3" placeholder="Password" onChange={this.props.handleChange} />
     </div>
   </div>
   <div className="form-group row">
