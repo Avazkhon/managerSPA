@@ -9,7 +9,13 @@ import OurService from './OurService';
 import Instructions from './Instructions';
 import About from './About';
 import Start from './Start';
-import NotFound from './notFound'
+import NotFound from './notFound';
+
+import Company from './componyComponent/Company';
+import Staff from './componyComponent/Staff';
+import Report from './componyComponent/Report';
+import Post from './componyComponent/Post';
+import Tuning from './componyComponent/Tuning';
 
 
 
@@ -18,12 +24,20 @@ class App extends React.Component{
     return (
       <Router>
         <Switch>
-        <Route exact path="/" component={Home} />
-        <Route path="/ourService/" component={OurService} />
-        <Route path="/instructions/" component={Instructions} />
-        <Route path="/about/" component={About} />
-        <Route path="/start/" component={Start} />
-        <Route component={NotFound} />
+          <Route exact path="/" component={Home} />
+          <Route path="/ourService/" component={OurService} />
+          <Route path="/instructions/" component={Instructions} />
+          <Route path="/about/" component={About} />
+          <Route path="/start/" component={Start} />
+
+          <Route path="/company" component={Company} />
+          <Route path="/staff/" component={Staff} />
+          <Route path="/report/" component={Report} />
+          <Route path="/post/" component={Post} />
+          <Route path="/tuning/" component={Tuning} />
+
+          <Route component={NotFound} />
+
         </Switch>
       </Router>
     )
