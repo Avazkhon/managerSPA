@@ -2,7 +2,8 @@ import React from 'react';
 
 // this Component
 import Nav from '../navBar/Nav';
-import Menu from '../sideBarComponents/Menu'
+import Menu from '../sideBarComponents/Menu';
+import FormCompony from '../componentForm/FormCompony';
 
 class Company extends React.Component{
   constructor(props) {
@@ -56,7 +57,7 @@ class Company extends React.Component{
         <content>
           <div className='text-center'>
             { this.HendalCreateCompany() }
-            { this.state.createCompany === true ? this.mainContent() : "new company" }
+            { this.state.createCompany === true ? this.mainContent() : <FormCompony /> }
           </div>
         </content>
         <footer>
