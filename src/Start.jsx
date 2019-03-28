@@ -2,7 +2,7 @@ import React from 'react';
 
 //this state
 import Nav from './navBar/Nav';
-import FormUser from './componentStart/formUser';
+import FormUser from './componentForm/formUser';
 import ReqComponent from './componentRequest/ReqComponent'
 
 class Start extends React.Component {
