@@ -1,5 +1,4 @@
-
-class ReqComponent{
+class ReqNewCompany{
 
   constructor(url , date) {
     this.url = url;
@@ -9,31 +8,35 @@ class ReqComponent{
 
   handleSendingUser() {
     let xhr = new XMLHttpRequest;
-    let url = `http://localhost:2020/userNew`;
-    let newUser = {
-  	  name: {
-      	firstName: this.date.firstName,
-      	lastName: this.date.lastName
+    let url = `http://localhost:2020/companyNew`;
+    let newCompany = {
+      name: {
+        nameCompany: this.date.nameCompany,
+        shortName: this.date.shortName,
+      },
+      stateRegister: {
+        INN:this.date.INN,
+        ORGN:this.date.ORGN
+      },
+      address: {
+        sity: this.date.sity,
+        street: this.date.street
       },
       contact: {
-      	email: this.date.email,
-      	phone: this.date.phone
+        email: this.date.email,
+        phone: this.date.phone
       },
-      security: {
-      	password: this.date.password
-      }
-  	};
+    };
 
-    xhr.open("POST", this.url, )
+    xhr.open("POST", url )
     xhr.setRequestHeader('Content-type', 'application/json; charset=utf-8');
 
     xhr.onreadystatechange = ()=>{
       if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200){
           console.log(xhr.response)
         }
-       console.log(xhr.response)
       }
-    xhr.send( JSON.stringify(newUser) )
+    xhr.send( JSON.stringify(newCompany) )
   }
 
   handleChange(event) {
@@ -42,4 +45,4 @@ class ReqComponent{
   }
 }
 
-export default ReqComponent
+export default ReqNewCompany

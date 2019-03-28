@@ -8,7 +8,7 @@ class FormCompony extends React.Component {
     <div className="form-group row">
       <label htmlFor="inputNameCommponyl3" className="col-sm-2 col-form-label">Названия компании</label>
     <div className="col-sm-10">
-      <input name="nameCommpony" className="form-control" id="inputNameCommponyl3" placeholder="Ввидите названия" onChange={this.props.handleChange}  />
+      <input name="nameCompany" className="form-control" id="inputNameCommponyl3" placeholder="Ввидите названия" onChange={this.props.handleChange}  />
     </div>
   </div>
   <div className="form-group row">
@@ -36,20 +36,26 @@ class FormCompony extends React.Component {
     </div>
   </div>
   <div className="form-group row">
+    <label htmlFor="inputEmail13" className="col-sm-2 col-form-label">эл. Почта</label>
+    <div className="col-sm-10">
+      <input name="email" className="form-control" id="inputEmail13" placeholder="Ввидите эл. почту" onChange={this.props.handleChange} />
+    </div>
+  </div>
+  <div className="form-group row">
     <label htmlFor="inputSity13" className="col-sm-2 col-form-label">Город</label>
     <div className="col-sm-10">
       <input name="sity" className="form-control" id="inputSity13" placeholder="Ввидите город" onChange={this.props.handleChange} />
     </div>
   </div>
   <div className="form-group row">
-    <label htmlFor="inputAddress13" className="col-sm-2 col-form-label">Адрес</label>
+    <label htmlFor="inputStreet13" className="col-sm-2 col-form-label">Адрес</label>
     <div className="col-sm-10">
-      <input name="address" className="form-control" id="inputAddress13" placeholder="Ввидите адрес" onChange={this.props.handleChange} />
+      <input name="street" className="form-control" id="inputStreet13" placeholder="Ввидите адрес" onChange={this.props.handleChange} />
     </div>
   </div>
   <div className="form-group row">
     <div className="col-sm-10">
-      <input  type='button' className="btn btn-primary" value="зарегистрироваться" onClick={this.props.handleSendingUser} / >
+      <input  type='button' className="btn btn-primary" value="зарегистрироваться" onClick={this.props.handleSendingCompany} / >
     </div>
   </div>
 </form>

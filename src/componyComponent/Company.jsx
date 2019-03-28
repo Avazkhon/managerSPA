@@ -4,6 +4,7 @@ import React from 'react';
 import Nav from '../navBar/Nav';
 import Menu from '../sideBarComponents/Menu';
 import FormCompony from '../componentForm/FormCompony';
+import ReqNewCompany from '../componentRequest/reqNewCompany';
 
 class Company extends React.Component{
   constructor(props) {
@@ -13,6 +14,8 @@ class Company extends React.Component{
     this.mainContent = this.mainContent.bind(this);
     this.HendalCreateCompany = this.HendalCreateCompany.bind(this);
     this.hendalCreateState = this.hendalCreateState.bind(this);
+    this.handleSendingCompany = this.handleSendingCompany.bind(this);
+    this.handleChange = this.handleChange.bind(this);
 
   }
 
@@ -48,6 +51,18 @@ class Company extends React.Component{
     console.log(this.state.createCompany);
   }
 
+  handleSendingCompany() {
+    let date = this.state;
+    let url = `http://localhost:2020/companyNew`;
+    let reqNewCompany = new ReqNewCompany(url, date)
+    reqNewCompany.handleSendingUser()
+  }
+
+  handleChange(event) {
+    let value = event.target.value;
+    this.setState({[event.target.name]: value})
+  }
+
   render(){
     return (
       <div className='main'>
@@ -57,7 +72,7 @@ class Company extends React.Component{
         <content>
           <div className='text-center'>
             { this.HendalCreateCompany() }
-            { this.state.createCompany === true ? this.mainContent() : <FormCompony /> }
+            { this.state.createCompany === true ? this.mainContent() : <FormCompony handleChange={this.handleChange} handleSendingCompany={this.handleSendingCompany} /> }
           </div>
         </content>
         <footer>
