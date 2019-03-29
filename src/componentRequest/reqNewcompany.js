@@ -1,6 +1,7 @@
+
 class ReqNewCompany{
 
-  constructor(url , date) {
+  constructor(url , date, colback) {
     this.url = url;
     this.date = date;
 
@@ -34,6 +35,7 @@ class ReqNewCompany{
     xhr.onreadystatechange = ()=>{
       if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200){
           console.log(xhr.response)
+          // colback()
         }
       }
     xhr.send( JSON.stringify(newCompany) )

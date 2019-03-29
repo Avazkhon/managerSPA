@@ -5,17 +5,19 @@ import Nav from '../navBar/Nav';
 import Menu from '../sideBarComponents/Menu';
 import FormCompony from '../componentForm/FormCompony';
 import ReqNewCompany from '../componentRequest/reqNewCompany';
+import Messang from '../messages/messagesFromTheServer'; 
 
 class Company extends React.Component{
   constructor(props) {
     super(props);
-    this.state = { createCompany: true }
+    this.state = { createCompany: true, messagesFromTheServer: false }
 
     this.mainContent = this.mainContent.bind(this);
-    this.HendalCreateCompany = this.HendalCreateCompany.bind(this);
+    this.hendalCreateCompany = this.hendalCreateCompany.bind(this);
     this.hendalCreateState = this.hendalCreateState.bind(this);
     this.handleSendingCompany = this.handleSendingCompany.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.handelMessang = this.handelMessang.bind(this);
 
   }
 
@@ -31,7 +33,8 @@ class Company extends React.Component{
     )
   }
 
-  HendalCreateCompany() {
+
+  hendalCreateCompany() {
     return (
       <div className="text-center menu">
         <button type="button" className="list-group-item list-group-item-action active">
@@ -44,23 +47,39 @@ class Company extends React.Component{
     )
   }
 
-  hendalCreateState () {
-    this.setState(state => ({
-      createCompany: !state.createCompany
-    })); 
-    console.log(this.state.createCompany);
-  }
-
-  handleSendingCompany() {
-    let date = this.state;
-    let url = `http://localhost:2020/companyNew`;
-    let reqNewCompany = new ReqNewCompany(url, date)
-    reqNewCompany.handleSendingUser()
-  }
 
   handleChange(event) {
     let value = event.target.value;
     this.setState({[event.target.name]: value})
+  }
+
+
+  handleSendingCompany() {
+    let date = this.state;
+    let url = `http://localhost:2020/companyNew`;
+    let reqNewCompany = new ReqNewCompany(url, date, this.setState(state => ({
+        messagesFromTheServer: !state.messagesFromTheServer,
+        createCompany: !state.createCompany
+      })))
+
+
+    reqNewCompany.handleSendingUser()
+  }
+
+
+  handelMessang(props) {
+
+    return Messang(props, ()=>{
+     this.setState(state => ({
+        messagesFromTheServer: !state.messagesFromTheServer
+      })); 
+    })
+  }
+
+  hendalCreateState () {
+    this.setState(state => ({
+      createCompany: !state.createCompany
+    }));
   }
 
   render(){
@@ -70,8 +89,9 @@ class Company extends React.Component{
           <Nav />
         </header>
         <content>
-          { this.HendalCreateCompany() }
+          { this.hendalCreateCompany() }
           <div className='text-center'>
+            {this.state.messagesFromTheServer !== false ? this.handelMessang() : ""}
             { this.state.createCompany === true ? this.mainContent() : <FormCompony handleChange={this.handleChange} handleSendingCompany={this.handleSendingCompany} /> }
           </div>
         </content>

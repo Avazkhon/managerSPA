@@ -10,6 +10,7 @@ class ReqComponent{
   handleSendingUser() {
     let xhr = new XMLHttpRequest;
     let url = `http://localhost:2020/userNew`;
+    let reUrl = '/company';
     let newUser = {
   	  name: {
       	firstName: this.date.firstName,
@@ -29,6 +30,7 @@ class ReqComponent{
 
     xhr.onreadystatechange = ()=>{
       if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200){
+          window.location.replace(reUrl);
           console.log(xhr.response)
         }
        console.log(xhr.response)
