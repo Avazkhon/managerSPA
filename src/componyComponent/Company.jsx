@@ -33,7 +33,7 @@ class Company extends React.Component{
 
   HendalCreateCompany() {
     return (
-      <div className="menu">
+      <div className="text-center menu">
         <button type="button" className="list-group-item list-group-item-action active">
           меню
         </button>
@@ -70,8 +70,8 @@ class Company extends React.Component{
           <Nav />
         </header>
         <content>
+          { this.HendalCreateCompany() }
           <div className='text-center'>
-            { this.HendalCreateCompany() }
             { this.state.createCompany === true ? this.mainContent() : <FormCompony handleChange={this.handleChange} handleSendingCompany={this.handleSendingCompany} /> }
           </div>
         </content>

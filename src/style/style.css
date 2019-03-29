@@ -7,14 +7,18 @@
   text-decoration-line: none;
 }
 
-.newUser {
+.newUser, .newCompany {
   width: 60%;
   height: 60%;
-  margin: 100px auto;
+  margin: 0 auto;
 }
 
 .notFound {
   width: 50%;
   height: 50%;
   margin: 100px auto;
+}
+
+.text-center{
+  margin-top: 50px;
 }

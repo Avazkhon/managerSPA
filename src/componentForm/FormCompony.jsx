@@ -3,8 +3,7 @@ import React from 'react';
 class FormCompony extends React.Component {
 	render() {
     return (
-    <div className='start'>
-    <form className="newUser">
+    <form className="newCompany">
     <div className="form-group row">
       <label htmlFor="inputNameCommponyl3" className="col-sm-2 col-form-label">Названия компании</label>
     <div className="col-sm-10">
@@ -59,7 +58,6 @@ class FormCompony extends React.Component {
     </div>
   </div>
 </form>
-</div>
   )
   }
 }

@@ -4,7 +4,7 @@ import Nav from './navBar/Nav';
 class OurService extends React.Component{
   render(){
     return (
-      <div className='OurService'>
+      <div className='main'>
         <header>
           <Nav />
         </header>

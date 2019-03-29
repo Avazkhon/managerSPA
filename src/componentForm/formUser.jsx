@@ -3,7 +3,7 @@ import React from 'react';
 class FormUser extends React.Component {
 	render() {
     return (
-    <div className='start'>
+    <div className='text-center'>
     <form className="newUser">
     <div className="form-group row">
       <label htmlFor="inputFirstNamel3" className="col-sm-2 col-form-label">Имя</label>

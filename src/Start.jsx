@@ -35,14 +35,18 @@ class Start extends React.Component {
 
   render() {
   	return (
-      <div className='start'>
+      <div className='main'>
        <header>
         <Nav />
-      </header>
-  	  <FormUser 
-  	    handleChange={this.handleChange} handleSendingUser={this.handleSendingUser}
-  	  />
-	</div>
+       </header>
+       <content>
+    	  <FormUser 
+    	    handleChange={this.handleChange} handleSendingUser={this.handleSendingUser}
+    	  />
+       </content>
+       <footer>
+       </footer>
+	    </div>
   	)
   }
 }
