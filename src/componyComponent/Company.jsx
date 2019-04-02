@@ -10,7 +10,18 @@ import Messang from '../messages/messagesFromTheServer';
 class Company extends React.Component{
   constructor(props) {
     super(props);
-    this.state = { createCompany: true, messagesFromTheServer: false }
+    this.state = { createCompany: true,
+     messagesFromTheServer: false,
+      button: false,
+        nameCompany: "",
+        shortName: "",
+        INN: "",
+        ORGN: "",
+        phone: "",
+        email: "",
+        sity: "",
+        street: ""
+      }
 
     this.mainContent = this.mainContent.bind(this);
     this.hendalCreateCompany = this.hendalCreateCompany.bind(this);
@@ -50,7 +61,24 @@ class Company extends React.Component{
 
   handleChange(event) {
     let value = event.target.value;
-    this.setState({[event.target.name]: value})
+    this.setState({[event.target.name]: value}, ()=>{
+      for(let key in this.state ) {
+        if(this.state.nameCompany !== "" &&
+          this.state.shortName !== "" &&
+          this.state.INN !== "" &&
+          this.state.ORGN !== "" &&
+          this.state.phone !== "" &&
+          this.state.email.match(/^[0-9a-z-\.]+\@[0-9a-z-]{2,}\.[a-z]{2,}$/i) &&
+          this.state.sity !== "" &&
+          this.state.street !== ""
+          ) {
+          this.setState({button: true});
+        }
+        else {
+          this.setState({button: false})
+        }
+      }
+    })
   }
 
 
@@ -92,7 +120,7 @@ class Company extends React.Component{
           { this.hendalCreateCompany() }
           <div className='text-center'>
             {this.state.messagesFromTheServer !== false ? this.handelMessang() : ""}
-            { this.state.createCompany === true ? this.mainContent() : <FormCompony handleChange={this.handleChange} handleSendingCompany={this.handleSendingCompany} /> }
+            { this.state.createCompany === true ? this.mainContent() : <FormCompony handleChange={this.handleChange} handleSendingCompany={this.handleSendingCompany} btn={this.state.button} /> }
           </div>
         </content>
         <footer>
