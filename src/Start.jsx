@@ -16,7 +16,8 @@ class Start extends React.Component {
     	email: "",
     	phone: "",
     	password: "",
-      formEntry: false
+      formEntry: false,
+      button: false
   	}
 
     this.handleSendingUser = this.handleSendingUser.bind(this);
@@ -34,7 +35,20 @@ class Start extends React.Component {
 
   handleChange(event) {
   	let value = event.target.value;
-  	this.setState({[event.target.name]: event.target.value})
+  	this.setState({[event.target.name]: event.target.value}, ()=>{
+      if(this.state.firstName !== "" &&
+      this.state.lastName !== "" && 
+      this.state.email.match(/^[0-9a-z-\.]+\@[0-9a-z-]{2,}\.[a-z]{2,}$/i) &&
+      this.state.phone !== "" &&
+      this.state.password !== ""
+      ){
+        this.setState({button: true}, console.log("true", this.state.button))
+      }
+      else {
+        this.setState({button: false},  console.log("false", this.state.button))
+      }
+    })
+    console.log(this.state)
   }
 
    handleFormState() {
@@ -43,7 +57,7 @@ class Start extends React.Component {
 
   getForm(){
     return this.state.formEntry == false ? <FormUser 
-        handleChange={this.handleChange} handleSendingUser={this.handleSendingUser} handleFormState={this.handleFormState}
+       button={this.state.button} handleChange={this.handleChange} handleSendingUser={this.handleSendingUser} handleFormState={this.handleFormState}
     /> : <FormEntry  handleFormState={this.handleFormState} />
   }
 

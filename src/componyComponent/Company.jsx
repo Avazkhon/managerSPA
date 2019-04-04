@@ -62,7 +62,6 @@ class Company extends React.Component{
   handleChange(event) {
     let value = event.target.value;
     this.setState({[event.target.name]: value}, ()=>{
-      for(let key in this.state ) {
         if(this.state.nameCompany !== "" &&
           this.state.shortName !== "" &&
           this.state.INN !== "" &&
@@ -77,7 +76,6 @@ class Company extends React.Component{
         else {
           this.setState({button: false})
         }
-      }
     })
   }
 

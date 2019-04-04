@@ -37,7 +37,7 @@ class FormUser extends React.Component {
   </div>
   <div className="form-group row">
     <div className="col-sm-10">
-      <input  type='button' className="btn btn-primary" value="зарегистрироваться" onClick={this.props.handleSendingUser} / >
+      <input  type='button' className="btn btn-primary" value="зарегистрироваться" onClick={this.props.button === true ? this.props.handleSendingUser : null} / >
     </div>
     <input  type='button' className="btn btn-light" value="войти" onClick={this.props.handleFormState} / >
   </div>
