@@ -7,7 +7,7 @@
   text-decoration-line: none;
 }
 
-.newUser, .newCompany {
+.newUser, .newCompany, .formEntry {
   width: 60%;
   height: 60%;
   margin: 0 auto;
