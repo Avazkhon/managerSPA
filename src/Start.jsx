@@ -4,6 +4,7 @@ import React from 'react';
 import Nav from './navBar/Nav';
 import FormUser from './componentForm/formUser';
 import ReqComponent from './componentRequest/ReqComponent';
+import ReqUserEntry from './componentRequest/reqUserEntry';
 import FormEntry from './componentForm/FormEntry';
 
 class Start extends React.Component {
@@ -24,6 +25,13 @@ class Start extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.getForm = this.getForm.bind(this);
     this.handleFormState = this.handleFormState.bind(this);
+    this.handleReqentryUser = this.handleReqentryUser.bind(this)
+  }
+
+  handleReqentryUser() {
+    let date = this.state;
+    let reqUserEntry = new ReqUserEntry(date);
+    reqUserEntry.handleReqUserEntry()
   }
 
   handleSendingUser() {
@@ -35,6 +43,7 @@ class Start extends React.Component {
 
   handleChange(event) {
   	let value = event.target.value;
+    console.log(value)
   	this.setState({[event.target.name]: event.target.value}, ()=>{
       if(this.state.firstName !== "" &&
       this.state.lastName !== "" && 
@@ -42,13 +51,12 @@ class Start extends React.Component {
       this.state.phone !== "" &&
       this.state.password !== ""
       ){
-        this.setState({button: true}, console.log("true", this.state.button))
+        this.setState({button: true})
       }
       else {
-        this.setState({button: false},  console.log("false", this.state.button))
+        this.setState({button: false})
       }
     })
-    console.log(this.state)
   }
 
    handleFormState() {
@@ -58,7 +66,7 @@ class Start extends React.Component {
   getForm(){
     return this.state.formEntry == false ? <FormUser 
        button={this.state.button} handleChange={this.handleChange} handleSendingUser={this.handleSendingUser} handleFormState={this.handleFormState}
-    /> : <FormEntry  handleFormState={this.handleFormState} />
+    /> : <FormEntry  handleChange={this.handleChange} handleFormState={this.handleFormState} handleReqentryUser={this.handleReqentryUser} />
   }
 
   render() {
