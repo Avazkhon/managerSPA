@@ -25,13 +25,16 @@ class Start extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.getForm = this.getForm.bind(this);
     this.handleFormState = this.handleFormState.bind(this);
-    this.handleReqentryUser = this.handleReqentryUser.bind(this)
+    this.handleReqEntryUser = this.handleReqEntryUser.bind(this)
   }
 
-  handleReqentryUser() {
+  handleReqEntryUser() {
     let date = this.state;
-    let reqUserEntry = new ReqUserEntry(date);
-    reqUserEntry.handleReqUserEntry()
+    if(date.password !== "" || date.email !== "") {
+      let reqUserEntry = new ReqUserEntry(date);
+      reqUserEntry.handleReqUserEntry()
+    }
+    return
   }
 
   handleSendingUser() {
@@ -60,13 +63,17 @@ class Start extends React.Component {
   }
 
    handleFormState() {
-    this.setState({formEntry: !this.state.formEntry})
+    this.setState({
+      formEntry: !this.state.formEntry,
+      password: "",
+      email: ""
+    })
   }
 
   getForm(){
     return this.state.formEntry == false ? <FormUser 
        button={this.state.button} handleChange={this.handleChange} handleSendingUser={this.handleSendingUser} handleFormState={this.handleFormState}
-    /> : <FormEntry  handleChange={this.handleChange} handleFormState={this.handleFormState} handleReqentryUser={this.handleReqentryUser} />
+    /> : <FormEntry  handleChange={this.handleChange} handleFormState={this.handleFormState} handleReqEntryUser={this.handleReqEntryUser} />
   }
 
   render() {

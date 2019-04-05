@@ -21,7 +21,7 @@ class FormEntry extends React.Component {
           <div className="col-sm-10">
             <input  type='button' className="btn btn-light" value="зарегистрироваться" onClick={this.props.handleFormState} / >
           </div>
-          <input  type='button' className="btn btn-primary" value="войти" onClick={this.props.handleReqentryUser}/ >
+          <input  type='button' className="btn btn-primary" value="войти" onClick={this.props.handleReqEntryUser}/ >
         </div>
       </form>
     </div>
